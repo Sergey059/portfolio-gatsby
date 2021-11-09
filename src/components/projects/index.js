@@ -1,7 +1,5 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-
 
 const Projects = ({totalCount, classes}) => {
 	const data = useStaticQuery(graphql`
@@ -13,9 +11,7 @@ const Projects = ({totalCount, classes}) => {
 						design
 						development
 						img {
-							childImageSharp {
-								gatsbyImageData
-							}
+							publicURL
 						}
 						name
 						url
@@ -43,11 +39,7 @@ const Projects = ({totalCount, classes}) => {
 							<li className="project__item">{item.node.year}</li>
 						</ul>
 					</div>
-					<GatsbyImage 
-						className = {classes}
-						image={getImage(item.node.img.childImageSharp.gatsbyImageData)}
-						alt={item.node.name}
-					/>
+					<img className = {classes} src={item.node.img.publicURL} alt={item.node.name}/>
 				</a>
 
 			)	
