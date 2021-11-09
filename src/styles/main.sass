@@ -1,0 +1,858 @@
+@import config
+
+// FONTS LOAD SECTION
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+		font-display: swap
+
+@include font('Montserrat-regular', normal, 400, '../fonts/Montserrat-Regular.woff2')
+@include font('Montserrat-medium', normal, 500, '../fonts/Montserrat-Medium.woff2')
+@include font('Montserrat-bold', normal, 700, '../fonts/Montserrat-Bold.woff2')
+@include font('icomoon', normal, 400, '../fonts/icon.woff2')
+
+// IMPORT SECTION
+@import "node_modules/normalize.css/normalize"
+
+// GENERAL DOCUMENT STYLES
+
+*,
+::before,
+::after
+	box-sizing: border-box
+body
+	min-width: 320px
+	display: flex
+	flex-direction: column
+	position: relative
+	font-family: $M-med
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	overflow-x: hidden
+	scroll-behavior: smooth
+#gatsby-focus-wrapper,
+.tl-wrapper
+	min-height: 100vh
+	display: flex
+	flex-direction: column
+.content
+	flex: 1 0 auto
+.container
+	margin: 0 auto
+	padding: 0 12px
+	max-width: 1200px
+	@media only screen and (min-width: $sm)
+		padding: 0 20px
+		max-width: 576px
+	@media only screen and (min-width: $md)
+		max-width: 768px
+	@media only screen and (min-width: $lg)
+		max-width: 1024px
+	@media only screen and (min-width: $xl)
+		max-width: 1240px
+.no-scroll
+	overflow: hidden
+h1,h2,h3,h4,h5,h6
+	margin: 0
+	line-height: 1.2
+p
+	margin: 0
+img
+	width: 100%
+	height: auto
+a
+	color: $textcolor
+	text-decoration: none
+	transition: $transition
+ul, ol
+	margin: 0
+	padding: 0
+	list-style-type: none
+details
+	position: relative
+	&[open]
+		.icon-caret-down
+			display: inline-block
+			transform: rotate(180deg)
+			transition: $transition
+summary
+	list-style-type: none
+button
+	display: inline-block
+	border: none
+	outline: none
+	background: transparent
+	cursor: pointer
+	transition: $transition
+input
+	outline: none
+	border: none
+::placeholder
+	color: #a2a2a2
+::selection
+	background-color: $accent
+	color: #fff
+input, textarea
+	background: transparent
+	border: none
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+@keyframes marquee 
+	0% 
+		transform: translateY(0)
+		opacity: 1
+	99%
+		opacity: 0.5
+	100%
+		transform: translate(-1200px)
+		opacity: 0
+[class^="icon-"], [class*=" icon-"]
+	font-family: 'icomoon' !important
+	speak: never
+	font-style: normal
+	font-weight: normal
+	font-variant: normal
+	text-transform: none
+	line-height: 1
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+.icon-logo:before
+	content: "\e906"
+.icon-hash:before
+	content: "\e905"
+.icon-arrow-download:before
+	content: "\e901"
+.icon-arrow-down:before
+	content: "\e900"
+.icon-arrow-right:before
+	content: "\e902"
+.icon-logo-mini:before
+	content: "\e903"
+.icon-clip:before
+	content: "\e904"
+.icon-telegram:before
+	content: "\e907"
+.btn
+	display: inline-flex
+	align-items: center
+	padding: 0 24px
+	position: relative
+	line-height: 48px
+	font-family: $M-med
+	text-transform: lowercase
+	letter-spacing: 0.02em
+	border: none
+	background: transparent
+	cursor: pointer
+	z-index: 1
+	&:before
+		display: inline-block
+		width: 48px
+		height: 48px
+		position: absolute
+		top: 0
+		left: 0
+		content: ''
+		border-radius: 24px
+		transition: $transition
+		z-index: -1
+	&:hover
+		&::before
+			width: 100%
+			border: 1px solid $accent
+			transition: $transition
+		.icon-arrow-right
+			transform: translateX(6px)
+.btn-icon
+	padding: 0
+	position: relative
+	display: inline-flex
+	align-items: center
+	line-height: 48px
+	font-family: $M-med
+	text-transform: lowercase
+	text-align: center
+	.icon-telegram,
+	.icon-arrow-download
+		margin-right: -6px
+		&::before
+			display: inline-block
+			width: 48px
+			height: 48px
+			line-height: 48px
+			border-radius: 24px
+			border: 1px solid darken($gray, 2%)
+			background: $gray
+			@media only screen and (min-width: $md)
+				border: 1px solid $gray
+				background: #fff
+.icon-arrow-right
+	margin-left: 10px
+	display: inline-block
+	font-size: 8px
+	font-weight: 900
+	transition: $transition
+.title
+	margin-bottom: 10px
+	max-width: 290px
+	font-family: $M-bold
+	font-size: 36px
+	text-transform: lowercase
+	color: #000
+	@media only screen and (min-width: $md)
+		max-width: 380px
+		font-size: 46px
+	@media only screen and (min-width: $lg)
+		max-width: 480px
+		font-size: 52px
+	@media only screen and (min-width: $xl)
+		max-width: 580px
+		font-size: 64px
+	&_red
+		color: $accent
+.desc
+	margin-bottom: 30px
+	font-family: $M-med
+	@media only screen and (min-width: $lg)
+		max-width: 460px
+		font-size: 18px
+.text
+	margin-bottom: 1.5em
+	&:last-of-type
+		margin-bottom: 0
+.about,
+.projects,
+.plan,
+.aboutme
+	padding: 60px 0
+	@media only screen and (min-width: $md)
+		padding: 90px 0
+	@media only screen and (min-width: $xl)
+		padding: 120px 0
+.about__box,
+.projects__box,
+.plan__list
+	@media only screen and (min-width: $lg)
+		padding-left: 280px
+	@media only screen and (min-width: $xl)
+		padding-left: 360px
+.general
+	margin-top: -56px
+	padding-top: 56px
+	position: relative
+	min-height: 460px
+	height: 100vh
+	background: $gray
+	overflow: hidden
+	.container
+		height: 100%
+		display: flex
+		justify-content: center
+		align-items: center
+		@media only screen and (min-width: $md)
+			justify-content: space-between
+			align-items: center
+	&__info
+		max-width: 300px
+		position: relative
+		display: flex
+		flex-direction: column
+		align-items: center
+		text-align: center
+		z-index: 2
+		@media only screen and (min-width: $md)
+			margin-top: 20vh
+			max-width: 400px
+			min-height: 340px
+			align-items: flex-start
+			text-align: left
+		@media only screen and (min-width: $lg)
+			max-width: 500px
+		@media only screen and (min-width: $xl)
+			max-width: 580px
+	&__btn
+		&::before
+			border: 1px solid darken($gray, 2%)
+			background: darken($gray, 1%)
+			@media only screen and (min-width: $md)
+				background: $white
+		&_none
+			@media only screen and (min-width: $md)
+				display: none
+	.icon-telegram
+		color: darken($gray, 20%)
+	&__promo
+		margin-top: -9vh
+		position: relative
+		z-index: 2
+		@media only screen and (min-width: $lg)
+			margin-left: 40px
+			display: flex
+			justify-content: center
+			flex-basis: 50%
+		@media only screen and (min-width: $xl)
+			margin-left: 90px
+	&__circle
+		width: 460px
+		height: 460px
+		display: block
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		background: $white
+		border: 1px solid darken($gray, 1%)
+		border-radius: 50%
+		@media only screen and (min-width: $md)
+			transform: translate(-25%,-40%)
+		@media only screen and (min-width: $lg)
+			width: 540px
+			height: 540px
+	&__img
+		display: none
+		width: 280px
+		border-radius: 5px
+		@media only screen and (min-width: $md)
+			display: block
+		@media only screen and (min-width: $lg)
+			width: 340px
+		@media only screen and (min-width: $xl)
+			width: 400px
+	&__intro
+		max-width: 194px
+		line-height: 1.2
+		position: absolute
+		bottom: 40px
+		right: 10px
+		font-family: $M-med
+		font-size: 18px
+		text-transform: uppercase
+		z-index: 1
+		@media only screen and (min-width: $sm)
+			right: 15%
+		@media only screen and (min-width: $md)
+			bottom: 60px
+			max-width: 235px
+			font-size: 22px
+		@media only screen and (min-width: $lg)
+			right: 25%
+.section-title
+	margin-bottom: 24px
+	line-height: 1.2
+	font-family: $M-reg
+	font-size: 32px
+	text-transform: uppercase
+	color: $accent
+	@media only screen and (min-width: $sm)
+		font-size: 60px
+	@media only screen and (min-width: $md)
+		margin-bottom: 24px
+		font-size: 72px
+	@media only screen and (min-width: $lg)
+		margin-bottom: 60px
+		font-size: 90px
+	@media only screen and (min-width: $xl)
+		font-size: 120px
+	&__note
+		&::after
+			display: inline-block
+			content: '*'
+			transform: translate(50%, -20%)
+.progress
+	&__item
+		margin-bottom: 20px
+		&:last-child
+			margin-bottom: 0
+	&__title
+		margin-bottom: 10px
+		line-height: 1.2
+		font-family: $M-med
+		font-size: 20px
+		text-transform: lowercase
+	&__bar
+		margin-bottom: 5px
+		padding: 1px
+		height: 5px
+		position: relative
+		background: #fff
+		border: 1px solid #cdcdcd
+		border-radius: 3px
+		&::after
+			position: absolute
+			height: 1px
+			content: ''
+			background: #000
+		&_design
+			&::after
+				width: 80%
+		&_front
+			&::after
+				width: 90%
+		&_back
+			&::after
+				width: 45%
+		&_figma
+			&::after
+				width: 80%
+		&_photoshop
+			&::after
+				width: 75%
+		&_illustrator
+			&::after
+				width: 35%
+		&_aftereffects
+			&::after
+				width: 30%
+		&_premiere
+			&::after
+				width: 50%
+		&_html
+			&::after
+				width: 90%
+		&_preproc
+			&::after
+				width: 80%
+		&_react
+			&::after
+				width: 40%
+		&_node
+			&::after
+				width: 35%
+		&_firebase
+			&::after
+				width: 40%
+	&__desc
+		font-size: 10px
+.about
+	position: relative
+	&__desc
+		max-width: 600px
+		margin-bottom: 30px
+		@media only screen and (min-width: $md)
+			max-width: 720px
+		@media only screen and (min-width: $lg)
+			max-width: 600px
+		@media only screen and (min-width: $xl)
+			max-width: 720px
+	&__progress
+		margin-bottom: 46px
+		@media only screen and (min-width: $sm)
+			max-width: 80%
+		@media only screen and (min-width: $md)
+			max-width: 540px
+	&__btn
+		&::before
+			background-color: $gray
+			border: 1px solid darken($gray, 2%)
+.banner
+	padding: 60px 0
+	background: #000
+	color: $white
+	@media only screen and (min-width: $md)
+		padding: 90px 0
+	.container
+		overflow: hidden
+	&__list
+		min-width: 1200px
+		display: flex
+	&__item
+		display: flex
+		align-items: center
+		font-family: $M-med
+		font-size: 18px
+		text-transform: uppercase
+		animation: marquee 10s infinite linear
+		@media only screen and (min-width: $sm)
+			font-size: 24px
+		@media only screen and (min-width: $md)
+			font-size: 36px
+		@media only screen and (min-width: $md)
+			font-size: 42px
+	.icon-arrow-down
+		margin: 0 15px
+		font-size: 16px
+		@media only screen and (min-width: $sm)
+			font-size: 19px
+		@media only screen and (min-width: $md)
+			margin: 0 25px
+			font-size: 30px
+		@media only screen and (min-width: $lg)
+			margin: 0 27px
+			font-size: 32px
+.projects
+	padding: 60px 0
+	position: relative
+	background: $gray
+	@media only screen and (min-width: $md)
+		padding: 90px 0
+	&_white
+		background-color: $white
+	&__list
+		margin-bottom: 24px
+	&__btn
+		&::before
+			background-color: $white
+			border: 1px solid darken($gray, 2%)
+.project
+	padding: 24px 0
+	display: block
+	position: relative
+	border-bottom: 1px solid #f1f1f1
+	perspective: 150px
+	perspective-origin: 50% 50%
+	@media only screen and (min-width: $sm)
+		padding: 30px 0
+	@media only screen and (min-width: $md)
+		padding: 36px 0
+	@media only screen and (min-width: $lg)
+		border-bottom: none
+	&:hover
+		.project__list
+			opacity: 1
+		.project__info
+			@media only screen and (min-width: $lg)
+				transform: translateX(60px)
+		.project__title
+			@media only screen and (min-width: $lg)
+				color: #646464
+		.project__img
+			@media only screen and (min-width: $lg)
+				width: 260px
+				opacity: 1
+				transform: rotateY(4deg)
+			@media only screen and (min-width: $xl)
+				width: 280px
+			&_left
+				@media only screen and (min-width: $lg)
+					transform: rotateY(4deg)
+			&_right
+				@media only screen and (min-width: $lg)
+					transform: rotateY(-4deg)
+	&:last-of-type
+		border: none
+	&__info
+		display: flex
+		flex-direction: column-reverse
+		transition: transform 0.6s ease
+	&__title
+		font-family: $M-med
+		font-size: 42px
+		font-weight: 500
+		text-transform: lowercase
+		color: $white
+		-webkit-text-stroke: 1px #646464
+		transition: color $transition
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+			text-shadow: -0 -2px 1px #000000,0 -2px 1px #000000,-0 2px 1px #000000,0 2px 1px #000000,-2px -0 1px #000000,2px -0 1px #000000,-2px 0 1px #000000,2px 0 1px #000000,-1px -2px 1px #000000,1px -2px 1px #000000,-1px 2px 1px #000000,1px 2px 1px #000000,-2px -1px 1px #000000,2px -1px 1px #000000,-2px 1px 1px #000000,2px 1px 1px #000000,-2px -2px 1px #000000,2px -2px 1px #000000,-2px 2px 1px #000000,2px 2px 1px #000000,-2px -2px 1px #000000,2px -2px 1px #000000,-2px 2px 1px #000000,2px 2px 1px #000000
+		@media only screen and (min-width: $sm)
+			-webkit-text-stroke: 2px #646464
+			font-size: 60px
+		@media only screen and (min-width: $sm)
+			font-size: 90px
+		@media only screen and (min-width: $lg)
+			line-height: 1
+			font-size: 120px
+		@media only screen and (min-width: $lg)
+			-webkit-text-stroke: 3px #646464
+	&__list
+		margin-left: 2px
+		display: flex
+		transition: opacity .3s ease .3s
+		@media only screen and (min-width: $md)
+			margin-left: 4px
+		@media only screen and (min-width: $lg)
+			margin-left: 11px
+			opacity: 0
+	&__item
+		display: flex
+		align-items: center
+		line-height: 1.2
+		font-family: $M-reg
+		font-size: 14px
+		text-transform: lowercase
+		color: #646464
+		@media only screen and (min-width: $md)
+			font-size: 18px
+		@media only screen and (min-width: $lg)
+			font-size: 20px
+		@media only screen and (min-width: $xl)
+			font-size: 24px
+		&::after
+			margin: 7px
+			display: inline-block
+			width: 3px
+			height: 3px
+			content: ''
+			background: #646464
+			border-radius: 50%
+		&:last-of-type
+			&::after
+				display: none
+	&__img
+		display: none
+		border: 1px solid #fff
+		@media only screen and (min-width: $lg)
+			display: block
+			width: 0
+			height: 240px
+			position: absolute
+			top: -15px
+			opacity: 0
+			transition: $transition
+		@media only screen and (min-width: $xl)
+			height: 260px
+			top: -25px
+		&_left
+			@media only screen and (min-width: $lg)
+				left: -240px
+			@media only screen and (min-width: $xl)
+				left: -300px
+		&_right
+			@media only screen and (min-width: $lg)
+				right: 0
+			@media only screen and (min-width: $xl)
+				right: 0
+.plan
+	&__list
+		counter-reset: plan-list
+	&__item
+		margin-bottom: 30px
+		padding-bottom: 30px
+		position: relative
+		border-bottom: 1px solid $gray
+		@media only screen and (min-width: $md)
+			display: flex
+			justify-content: space-between
+			align-items: center
+		&::before
+			margin-right: 10px
+			display: inline-block
+			content: '0' counter(plan-list)
+			counter-increment: plan-list
+			font-family: $M-bold
+			font-size: 14px
+			transform: translateY(-10px)
+		&:last-of-type
+			margin-bottom: 12px
+	&__title
+		display: inline-block
+		margin-bottom: 10px
+		font-family: $M-med
+		font-size: 18px
+		text-transform: uppercase
+		@media only screen and (min-width: $md)
+			margin-bottom: 0
+			flex: 1
+	&__desc
+		@media only screen and (min-width: $md)
+			width: 430px
+		@media only screen and (min-width: $xl)
+			width: 540px
+	&__note
+		font-family: $M-med
+		color: $accent
+		&::before
+			margin-right: 18px
+			content: '*'
+			display: inline-block
+.aboutme
+	.container
+		@media only screen and (min-width: $md)
+			display: flex
+			justify-content: space-between
+	&__box
+		@media only screen and (min-width: $lg)
+			flex: 0 0 560px
+		@media only screen and (min-width: $xl)
+			margin-right: 60px
+			flex-basis: 660px
+	&__desc
+		margin-bottom: 60px
+.sidebar
+	flex: 0 0 360px
+	display: none
+	flex-direction: column
+	align-items: flex-start
+	@media only screen and (min-width: $lg)
+		display: flex
+	&__title
+		margin-bottom: 30px
+		line-height: 1.2
+		font-family: $M-med
+		font-size: 36px
+		text-transform: uppercase
+		color: $accent
+		@media only screen and (min-width: $lg)
+			max-width: 360px
+			font-size: 48px
+.skils
+	margin-bottom: 60px
+	@media only screen and (min-width: $sm)
+		display: flex
+		justify-content: space-between
+	@media only screen and (min-width: $md)
+		justify-content: space-around
+	@media only screen and (min-width: $lg)
+		justify-content: space-between
+	&__design,
+	&__dev
+		@media only screen and (min-width: $sm)
+			flex-basis: 245px
+		@media only screen and (min-width: $md)
+			flex-basis: 300px
+		@media only screen and (min-width: $lg)
+			flex-basis: 250px
+		@media only screen and (min-width: $xl)
+			flex-basis: 300px
+	&__design
+		margin-bottom: 42px
+		@media only screen and (min-width: $sm)
+			margin-bottom: 0
+	&__title
+		margin-bottom: 24px
+		font-size: 24px
+		font-family: $M-bold
+.exp-ed
+	&__title
+		font-size: 24px
+		font-family: $M-bold
+		@media only screen and (min-width: $md)
+			margin-left: 35px
+		@media only screen and (min-width: $lg)
+			margin-left: 0
+.form-box
+	display: flex
+	align-items: center
+	justify-content: center
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: #fff
+	z-index: -10
+	opacity: 0
+	@media only screen and (min-width: $md)
+		position: relative
+		background-color: transparent
+		z-index: 2
+		opacity: 1
+	@media only screen and (min-width: $lg)
+		margin-left: 40px
+		flex-basis: 50%
+	@media only screen and (min-width: $xl)
+		margin-left: 120px
+	&.active
+		z-index: 11
+		opacity: 1
+		.form
+			opacity: 1
+.btn-close
+	padding: 0
+	width: 40px
+	line-height: 40px
+	position: absolute
+	right: 6px
+	top: 6px
+	display: inline-block
+	font-size: 32px
+	@media only screen and (min-width: $md)
+		display: none	
+.form
+	margin-top: -9vh
+	width: 300px
+	opacity: 0
+	transition: opacity .3s ease-in-out 0.1s
+	@media only screen and (min-width: $sm)
+		width: 360px
+	@media only screen and (min-width: $md)
+		width: 320px
+		opacity: 1
+	@media only screen and (min-width: $lg)
+		width: 380px
+	@media only screen and (min-width: $xl)
+		width: 420px
+	&__item
+		margin-bottom: 10px
+		@media only screen and (min-width: $md)
+			margin-bottom: 15px
+		&_mb
+			margin-bottom: 30px
+	&__title
+		display: block
+		font-size: 12px
+		&_none
+			opacity: 0
+		&_dfx
+			display: flex
+		&_file
+			display: flex
+			align-items: center
+			font-size: 16px
+			cursor: pointer
+	&__input
+		padding: 4px 0
+		display: block
+		width: 100%
+		resize: none
+		line-height: 1.6
+		border-bottom: 1px solid #f1f1f1
+	&__text
+		display: inline-block
+		max-width: 290px
+		font-size: 10px
+	&__checkbox
+		margin-right: 6px
+	&__link
+		margin: 0 4px
+		text-decoration: underline
+	&__file
+		display: none
+	.icon-clip
+		margin-right: 10px
+		font-size: 24px
+	&__btn
+		&::before
+			border: 1px solid darken($gray, 1%)
+			background: $gray
+.error-page
+	margin-top: -56px
+	padding-top: 56px
+	position: relative
+	min-height: 460px
+	height: 100vh
+	background: $gray
+	.container
+		padding-bottom: 30px
+		height: 100%
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		text-align: center
+	&__title
+		margin-bottom: 20px
+		@media only screen and (min-width: $lg)
+			margin-bottom: 30px
+	&__img
+		margin-bottom: 20px
+		max-width: 290px
+		@media only screen and (min-width: $lg)
+			max-width: 500px
+
+@import '../components/cursor/style'
+@import '../components/header/style'
+@import '../components/logo/style'
+@import '../components/photo/style'
+@import '../components/timeline/style'
+@import '../components/sertificates/style'
+@import '../components/ability/style'
+@import '../components/social/style'
+@import '../components/footer/style'

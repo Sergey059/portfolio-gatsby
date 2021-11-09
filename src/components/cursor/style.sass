@@ -1,0 +1,23 @@
+.cursor-outer
+	position: absolute
+	transform: translate(-50%, -50%)
+	width: 41px
+	height: 41px
+	background: rgba(0, 0, 0, .03)
+	border: 1px solid #d6d6d6
+	border-radius: 50%
+	overflow: hidden
+	pointer-events: none
+	z-index: 1000
+	transition: opacity $transition
+.cursor-inner
+	position: absolute
+	transform: translate(-50%, -50%)
+	width: 7px
+	height: 7px
+	background: rgba(0, 0, 0, .7)
+	border-radius: 50%
+	overflow: hidden
+	pointer-events: none
+	z-index: 1001
+	transition: opacity $transition, transform $transition

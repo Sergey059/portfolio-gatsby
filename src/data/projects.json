@@ -1,0 +1,42 @@
+[
+	{
+		"img": "../images/travel-1.jpg",
+		"name": "IRproblema",
+		"url": "https://sergey059.github.io/luxury/",
+		"year": "2021",
+		"design": true,
+		"development": true
+	},
+	{
+		"name": "Travel",
+		"img": "../images/travel-2.jpg",
+		"url": "https://mail.ru",
+		"year": "2020",
+		"design": false,
+		"development": true
+	},
+	{
+		"name": "Luxury",
+		"img": "../images/travel-3.jpg",
+		"url": "https://google.ru",
+		"year": "2019",
+		"design": true,
+		"development": false
+	},
+	{
+		"name": "Umylabs",
+		"img": "../images/travel-4.jpg",
+		"url": "https://www.pexels.com/",
+		"year": "2018",
+		"design": false,
+		"development": true
+	},
+	{
+		"name": "Umylabs123",
+		"img": "../images/travel-4.jpg",
+		"url": "https://www.pexels.com/",
+		"year": "2018",
+		"design": false,
+		"development": true
+	}
+]

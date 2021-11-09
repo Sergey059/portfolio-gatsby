@@ -1,0 +1,28 @@
+.ability
+	@media only screen and (min-width: $sm)
+		display: flex
+		justify-content: space-between
+	@media only screen and (min-width: $md)
+		justify-content: space-around
+	@media only screen and (min-width: $lg)
+		justify-content: space-between
+	@media only screen and (min-width: $xl)
+		justify-content: space-around
+	&__title
+		margin-bottom: 24px
+		width: 296px
+		font-size: 24px
+		font-family: $M-bold
+		@media only screen and (min-width: $sm)
+			margin-top: 30px
+			width: 210px
+			line-height: 1.6
+	&__list
+		padding-left: 20px
+	&__item
+		margin-bottom: 15px
+		list-style-type: disc
+		line-height: 1.6
+		font-family: $M-med
+		&:last-of-type
+			margin-bottom: 0

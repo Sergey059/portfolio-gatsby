@@ -1,0 +1,54 @@
+.contact
+	line-height: 32px
+	&:last-of-type
+		margin-bottom: 10px
+	&_bold
+		margin-right: 6px
+		font-family: $M-bold
+	
+.social
+	margin-bottom: 20px
+	display: flex
+	&__item
+		&::after
+			margin: 0 3px
+			position: relative
+			top: 1px
+			display: inline-block
+			width: 1px
+			height: 12px
+			content: ''
+			background: $textcolor
+			@media only screen and (min-width: $md)
+				margin: 0 6px
+		&:last-of-type
+			&::after
+				display: none
+	&__link
+		position: relative
+		display: inline-block
+		padding: 0 1px
+		line-height: 32px
+		font-family: $M-bold
+		font-size: 14px
+		@media only screen and (min-width: $sm)
+			font-size: 15px
+		@media only screen and (min-width: $md)
+			font-size: 16px
+		&::before
+			display: inline-block
+			width: 0
+			height: 2px
+			position: absolute
+			top: 50%
+			left: 0
+			transform: translateY(-50%)
+			content: ''
+			background: $accent
+			border-radius: 2px
+			opacity: 0
+			transition: $transition
+		&:hover
+			&::before
+				width: 100%
+				opacity: 1
