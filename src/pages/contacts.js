@@ -27,6 +27,8 @@ const Contacts = () => {
 					<div className = {show ? "form-box active" : "form-box"}>
 						<button className="btn-close"  onClick={() => setShow(!show)}>✕</button>
 						<form className="form" name="contact" method="POST" data-netlify="true">
+							<input type="hidden" name="bot-field" />
+							<input type="hidden" name="form-name" value="contact" />
 							<div className="form__item">
 								<label className="form__title form__title_none" htmlFor="name">Введите имя:</label>
 								<input className="form__input" id="name" type="text" name="name" placeholder="Ваше имя*" required />
