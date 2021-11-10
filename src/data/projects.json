@@ -1,42 +1,42 @@
 [
 	{
-		"img": "../images/travel-1.jpg",
 		"name": "IRproblema",
-		"url": "https://sergey059.github.io/luxury/",
+		"img": "../images/project-5.jpg",
+		"url": "https://sergey059.github.io/irproblema.lv/index.html",
 		"year": "2021",
-		"design": true,
+		"design": false,
 		"development": true
 	},
 	{
-		"name": "Travel",
-		"img": "../images/travel-2.jpg",
-		"url": "https://mail.ru",
+		"name": "Bootstrap-5",
+		"img": "../images/project-4.jpg",
+		"url": "https://sergey059.github.io/Landing-page-bootstrap_5/",
+		"year": "2021",
+		"design": false,
+		"development": true
+	},
+	{
+		"name": "Online Shop",
+		"img": "../images/project-3.jpg",
+		"url": "https://sergey059.github.io/Store-preview/",
 		"year": "2020",
 		"design": false,
 		"development": true
 	},
 	{
-		"name": "Luxury",
-		"img": "../images/travel-3.jpg",
-		"url": "https://google.ru",
+		"name": "KuznjaBrendov",
+		"img": "../images/project-2.jpg",
+		"url": "https://sergey059.github.io/KuznjaBrendov/",
 		"year": "2019",
-		"design": true,
-		"development": false
-	},
-	{
-		"name": "Umylabs",
-		"img": "../images/travel-4.jpg",
-		"url": "https://www.pexels.com/",
-		"year": "2018",
 		"design": false,
 		"development": true
 	},
 	{
-		"name": "Umylabs123",
-		"img": "../images/travel-4.jpg",
-		"url": "https://www.pexels.com/",
-		"year": "2018",
-		"design": false,
+		"name": "Luxury",
+		"img": "../images/project-1.jpg",
+		"url": "https://sergey059.github.io/luxury/",
+		"year": "2019",
+		"design": true,
 		"development": true
 	}
 ]

@@ -4,11 +4,11 @@ import { Link } from 'gatsby'
 import LayoutContacts from "../components/layout-contacts"
 import Seo from "../components/seo"
 import Social from '../components/social'
-// import Form from '../components/form'
 
 
 const Contacts = () => {
 	const [show, setShow] = useState(false)
+	
 	return (
 		<LayoutContacts>
 			<Seo title="Контакты" />
@@ -26,7 +26,7 @@ const Contacts = () => {
 
 					<div className = {show ? "form-box active" : "form-box"}>
 						<button className="btn-close"  onClick={() => setShow(!show)}>✕</button>
-						<form className="form" action="#" method="post">
+						<form className="form" name="contact" method="POST" data-netlify="true">
 							<div className="form__item">
 								<label className="form__title form__title_none" htmlFor="name">Введите имя:</label>
 								<input className="form__input" id="name" type="text" name="name" placeholder="Ваше имя*" required />
@@ -41,7 +41,7 @@ const Contacts = () => {
 							</div>
 							<div className="form__item form__item_mb">
 								<label className="form__title form__title_file" htmlFor="file"><i className="icon-clip"></i>Прикрепить файл</label>
-								<input className="form__file" id="file" type="file" name="file" accept=".jpg, .pdf, .doc, .docx, .xlsx" multiple />
+								<input className="form__file" id="file" type="file" name="file" accept=".jpg, .pdf, .doc, .docx, .xlsx" />
 							</div>
 							<div className="form__item form__item_mb">
 								<label className="form__title form__title_dfx">

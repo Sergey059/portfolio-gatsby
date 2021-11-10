@@ -26,7 +26,7 @@ const About = () => {
 						<StaticImage
 							placeholder="dominantColor"
 							className="general__img"
-							src="../images/photo.jpg"
+							src="../images/photo-2.jpg"
 							alt="Фото" />
 					</div>
 				</div>
