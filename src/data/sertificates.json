@@ -1,22 +1,26 @@
 [
-	{
-		"img": "../images/html.jpg",
-		"name": "HTML/CSS интерактивный курс"
-	},
-	{
-		"img": "../images/html-pro.jpg",
-		"name": "Профессиональная верстка"
-	},
-	{
-		"img": "../images/js.jpg",
-		"name": "Базовый курс JavaScript"
-	},
-	{
-		"img": "../images/js-pro.jpg",
-		"name": "Продвинутый курс JavaScript"
-	},
-	{
-		"img": "../images/creative-industries.jpg",
-		"name": "Участник всероссийского конкурса Цифровой прорыв 2021"
-	}
+  {
+    "img": "../images/html.jpg",
+    "name": "HTML/CSS интерактивный курс"
+  },
+  {
+    "img": "../images/html-pro.jpg",
+    "name": "Профессиональная верстка"
+  },
+  {
+    "img": "../images/js.jpg",
+    "name": "Базовый курс JavaScript"
+  },
+  {
+    "img": "../images/js-pro.jpg",
+    "name": "Продвинутый курс JavaScript"
+  },
+  {
+    "img": "../images/node-js.jpg",
+    "name": "Node.JS"
+  },
+  {
+    "img": "../images/creative-industries.jpg",
+    "name": "Участник всероссийского конкурса Цифровой прорыв 2021"
+  }
 ]
