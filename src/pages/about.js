@@ -107,7 +107,7 @@ const About = () => {
                     <p className="progress__desc">Успешно работаю с микросервисной архитектурой и фреймворками</p>
                   </div>
                   <div className="progress__item">
-                    <p className="progress__title">MongoDB, Firebase</p>
+                    <p className="progress__title">MongoDB, Prisma, PostgreSQL, MySQL</p>
                     <div className="progress__bar progress__bar_firebase"></div>
                     <p className="progress__desc">Работаю с прогрессивными облачными хранилищами и сервисами</p>
                   </div>
