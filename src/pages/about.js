@@ -118,10 +118,18 @@ const About = () => {
             <section className="exp-ed">
               <h2 className="exp-ed__title">Expiriens & Education</h2>
               <div className="expiriens">
+		<li className="expiriens__item">
+                    <div className="expiriens__year">2023 по н.в.</div>
+                    <p className="expiriens__desc">Продолжаю работать на фриланс биржах, веду поддержку выполненных проектов</p>
+                  </li>
                 <ul className="expiriens__list">
+		<li className="expiriens__item">
+                    <div className="expiriens__year">2022-2023</div>
+                    <p className="expiriens__desc">Прошел и заавершил обучение в университете Geekbrains по программе дополнительного профессионального образования "Fullstack JavaScript" с присвоением диплома на ведение профессиональной деятельности в сфере "Связь, информационные и коммуникационные технологии.</p>
+                  </li>
                   <li className="expiriens__item">
                     <div className="expiriens__year">2021</div>
-                    <p className="expiriens__desc">Работаю фрилансером над разными проектами. С удовольствием присоединюсь к команде в роли frontend-разработчика. Прохожу обучение в университете Geekbrains на факультете Fullstack JavaScript.</p>
+                    <p className="expiriens__desc">Работаю фрилансером над разными проектами.</p>
                   </li>
                   <li className="expiriens__item">
                     <div className="expiriens__year">2020</div>
